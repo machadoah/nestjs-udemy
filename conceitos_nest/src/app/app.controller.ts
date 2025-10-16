@@ -12,4 +12,9 @@ export class AppController {
     // return this.appService.getHello();
     return 'Qualquer coisa';
   }
+
+  @Get('exemplo')
+  exemplo() {
+    return 'Exemplo de rota';
+  }
 }

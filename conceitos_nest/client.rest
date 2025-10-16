@@ -1,0 +1,10 @@
+@baseUrl = http://localhost:3000
+
+### Recebe 'Qualquer coisa'
+
+GET {{baseUrl}}/home/hello
+
+### Recebe 'exemplo'
+
+GET {{baseUrl}}/home/exemplo
+
