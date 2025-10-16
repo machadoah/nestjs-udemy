@@ -15,3 +15,11 @@ GET {{baseUrl}}/conceitos-manual
 ### Conceitos automatico controller
 
 GET {{baseUrl}}/conceitos-automatico
+
+### Conceitos Manuais get hello service
+
+GET {{baseUrl}}/conceitos-manual/service
+
+### Conceitos Manuais get hello service
+
+GET {{baseUrl}}/conceitos-automatico/service
