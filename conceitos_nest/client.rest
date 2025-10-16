@@ -8,3 +8,10 @@ GET {{baseUrl}}/home/hello
 
 GET {{baseUrl}}/home/exemplo
 
+### Conceitos manueal controller
+
+GET {{baseUrl}}/conceitos-manual
+
+### Conceitos automatico controller
+
+GET {{baseUrl}}/conceitos-automatico
