@@ -1,4 +1,6 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+
+// nest generate controller recados --no-spec
 
 @Controller('recados')
 export class RecadosController {
@@ -10,9 +12,9 @@ export class RecadosController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: number) {
+  findOne() {
     return {
-      detail: `This route return ${id} note.`,
+      detail: `This route return ONE note.`,
     };
   }
 }
