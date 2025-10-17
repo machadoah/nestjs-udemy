@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:3000
+
+### Recuperando todos os recados
+
+GET {{baseUrl}}/memos/
+
+### Recuperando recado por id
+
+GET {{baseUrl}}/memos/2
+
+### Criando recado 
+
+POST {{baseUrl}}/memos
+Content-Type: application/json
+
+  {
+    "text": "Novo Recado",
+    "from": "Antonio",
+    "to": "Isadora"
+  }
+
+### Atualiza o recado
+PATCH {{baseUrl}}/memos/1
+Content-Type: application/json
+
+  {
+    "text": "ATUALIZADO",
+    "from": "Antonio",
+    "to": "Isadora",
+    "wasRead": true
+  }
+
+### Apaga recado por id
+
+DELETE  {{baseUrl}}/memos/1
