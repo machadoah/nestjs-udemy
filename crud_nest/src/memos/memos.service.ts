@@ -23,8 +23,8 @@ export class MemosService {
     return this.memos;
   }
 
-  findOne(id: string) {
-    const memo = this.memos.find((item) => item.id === Number(id));
+  findOne(id: number) {
+    const memo = this.memos.find((item) => item.id === id);
 
     if (memo) {
       return memo;
@@ -51,10 +51,8 @@ export class MemosService {
     return newMemo;
   }
 
-  update(id: string, body: UpdateMemoDTO) {
-    const existingMemoIndex = this.memos.findIndex(
-      (memo) => memo.id === Number(id),
-    );
+  update(id: number, body: UpdateMemoDTO) {
+    const existingMemoIndex = this.memos.findIndex((memo) => memo.id === id);
 
     if (existingMemoIndex < 0) {
       throw new NotFoundException('Memo not existis.');
@@ -70,10 +68,8 @@ export class MemosService {
     return this.memos[existingMemoIndex];
   }
 
-  remove(id: string) {
-    const existingMemoIndex = this.memos.findIndex(
-      (memo) => memo.id === Number(id),
-    );
+  remove(id: number) {
+    const existingMemoIndex = this.memos.findIndex((memo) => memo.id === id);
 
     if (existingMemoIndex < 0) {
       throw new NotFoundException('Memo not existis.');

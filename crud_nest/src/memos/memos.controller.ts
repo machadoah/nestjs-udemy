@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
 } from '@nestjs/common';
@@ -23,7 +24,7 @@ export class MemosController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return this.recadosService.findOne(id);
   }
 
@@ -33,12 +34,15 @@ export class MemosController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMemoDTO: UpdateMemoDTO) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateMemoDTO: UpdateMemoDTO,
+  ) {
     return this.recadosService.update(id, updateMemoDTO);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.recadosService.remove(id);
   }
 }
