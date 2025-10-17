@@ -10,20 +10,18 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import { RecadosService } from './recados.service';
 
 // nest generate controller recados --no-spec
 
 @Controller('recados')
 export class RecadosController {
+  constructor(private readonly recadosService: RecadosService) {}
+
   @Get()
   @HttpCode(HttpStatus.I_AM_A_TEAPOT)
   findAll(@Query() pagination: { limit: number; offset: number }) {
-    const { limit = 10, offset = 0 } = pagination;
-
-    return {
-      detail: `This route return all notes! 🫖
-      In interval limit=${limit} and offset=${offset}`,
-    };
+    return this.recadosService.getAllRecados(pagination);
   }
 
   @Get(':id')
