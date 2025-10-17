@@ -1,14 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { RecadoEntity } from './entities/recado.entity';
+import { MemoEntity } from './entities/memo.entity';
 import { CreateMemoDTO } from './dto/create-memo.dto';
 import { UpdateMemoDTO } from './dto/update-memo.dto';
 
 // nest generate service recados --no-spec
 
 @Injectable()
-export class RecadosService {
+export class MemosService {
   private lastId = 1;
-  private memos: RecadoEntity[] = [
+  private memos: MemoEntity[] = [
     {
       id: 1,
       text: 'Este é um recado de teste',

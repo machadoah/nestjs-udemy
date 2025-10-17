@@ -7,15 +7,15 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { RecadosService } from './recados.service';
+import { MemosService } from './memos.service';
 import { CreateMemoDTO } from './dto/create-memo.dto';
 import { UpdateMemoDTO } from './dto/update-memo.dto';
 
 // nest generate controller recados --no-spec
 
-@Controller('recados')
-export class RecadosController {
-  constructor(private readonly recadosService: RecadosService) {}
+@Controller('memos')
+export class MemosController {
+  constructor(private readonly recadosService: MemosService) {}
 
   @Get()
   findAll() {

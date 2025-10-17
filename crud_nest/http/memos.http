@@ -2,15 +2,15 @@
 
 ### Recuperando todos os recados
 
-GET {{baseUrl}}/recados/
+GET {{baseUrl}}/memos/
 
 ### Recuperando recado por id
 
-GET {{baseUrl}}/recados/2
+GET {{baseUrl}}/memos/2
 
 ### Criando recado 
 
-POST {{baseUrl}}/recados
+POST {{baseUrl}}/memos
 Content-Type: application/json
 
   {
@@ -22,7 +22,7 @@ Content-Type: application/json
   }
 
 ### Atualiza o recado
-PATCH {{baseUrl}}/recados/1
+PATCH {{baseUrl}}/memos/1
 Content-Type: application/json
 
   {
@@ -35,4 +35,4 @@ Content-Type: application/json
 
 ### Apaga recado por id
 
-DELETE  {{baseUrl}}/recados/1
+DELETE  {{baseUrl}}/memos/1

@@ -1,4 +1,4 @@
-export class RecadoEntity {
+export class MemoEntity {
   id: number;
   text: string;
   from: string;
