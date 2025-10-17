@@ -5,6 +5,7 @@ import {
   HttpCode,
   HttpStatus,
   Param,
+  Patch,
   Post,
 } from '@nestjs/common';
 
@@ -30,8 +31,16 @@ export class RecadosController {
   @Post()
   create(@Body() body: { name: string }) {
     return {
-      detail: 'This route create a note!',
-      about_note: body.name,
+      detail: 'details',
+      name: body.name,
+    };
+  }
+
+  @Patch(':id')
+  update(@Param('id') id: string, @Body() body: { name: string }) {
+    return {
+      id: id,
+      name: body.name,
     };
   }
 }
