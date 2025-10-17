@@ -3,12 +3,9 @@ import {
   Controller,
   Delete,
   Get,
-  HttpCode,
-  HttpStatus,
   Param,
   Patch,
   Post,
-  Query,
 } from '@nestjs/common';
 import { RecadosService } from './recados.service';
 
@@ -19,38 +16,27 @@ export class RecadosController {
   constructor(private readonly recadosService: RecadosService) {}
 
   @Get()
-  @HttpCode(HttpStatus.I_AM_A_TEAPOT)
-  findAll(@Query() pagination: { limit: number; offset: number }) {
-    return this.recadosService.getAllRecados(pagination);
+  findAll() {
+    return this.recadosService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return {
-      detail: `This route return ${id} note.`,
-    };
+    return this.recadosService.findOne(id);
   }
 
   @Post()
-  create(@Body() body: { name: string }) {
-    return {
-      detail: 'details',
-      name: body.name,
-    };
+  create(@Body() body: any) {
+    return this.recadosService.create(body);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body: { name: string }) {
-    return {
-      id: id,
-      name: body.name,
-    };
+  update(@Param('id') id: string, @Body() body: any) {
+    return this.recadosService.update(id, body);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return {
-      detail: `Note ${id} deleted.`,
-    };
+    return this.recadosService.remove(id);
   }
 }
