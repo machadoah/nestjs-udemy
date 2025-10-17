@@ -30,7 +30,7 @@ export class MemosController {
 
   @Post()
   create(@Body() createMemoDTO: CreateMemoDTO) {
-    // return this.memosService.create(createMemoDTO);
+    return this.memosService.create(createMemoDTO);
   }
 
   @Patch(':id')
@@ -43,6 +43,6 @@ export class MemosController {
 
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
-    // return this.memosService.remove(id);
+    return this.memosService.remove(id);
   }
 }

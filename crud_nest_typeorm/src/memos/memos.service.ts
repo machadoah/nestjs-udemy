@@ -31,4 +31,23 @@ export class MemosService {
 
     throw new NotFoundException('Memo not exists.');
   }
+
+  create(createMemoDTO: CreateMemoDTO) {
+    const newMemo = {
+      ...createMemoDTO,
+    };
+
+    const memo = this.memoRepository.create(newMemo);
+    return this.memoRepository.save(memo);
+  }
+
+  async remove(id: number) {
+    const memo = await this.memoRepository.findOneBy({ id: id });
+
+    if (!memo) {
+      throw new NotFoundException('Memo not exists.');
+    }
+
+    return this.memoRepository.remove(memo);
+  }
 }
