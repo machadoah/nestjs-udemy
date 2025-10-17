@@ -10,7 +10,7 @@
 - [x] 01 - Introdução
 - [x] 02 - Requisitos, ambiente de desenvolvimento e o `@nestjs/cli` do Nest
 - [x] 03 - Conceitos básicos sobre Modules, Controllers e Providers (Services) do NestJS
-- [ ] 04 - Criando um CRUD para explorar as possibilidades do NestJS
+- [x] 04 - Criando um CRUD para explorar as possibilidades do NestJS
 - [ ] 05 - Banco de dados PostgreSQL com TypeORM e TypeScript no NestJS
 - [ ] 06 - Pipes, Interceptors, Middlewares, Exception Filters, Guards e Params no NestJS
 - [ ] 07 - Entendendo o sistema de Injeção de dependências no NestJS (Dependency Injection)
