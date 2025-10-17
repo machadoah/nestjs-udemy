@@ -1,11 +1,23 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateMemoDTO } from './create-memo.dto';
-import { IsBoolean, IsOptional } from 'class-validator';
+import {
+  IsBoolean,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
 
 // PartialType creates a new class with optional fields
 
-export class UpdateMemoDTO extends PartialType(CreateMemoDTO) {
+export class UpdateMemoDTO {
   @IsBoolean()
   @IsOptional()
   readonly wasRead?: boolean;
+
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(5)
+  @MaxLength(255)
+  @IsOptional()
+  readonly text?: string;
 }

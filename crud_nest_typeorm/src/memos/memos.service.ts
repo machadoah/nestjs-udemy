@@ -41,6 +41,16 @@ export class MemosService {
     return this.memoRepository.save(memo);
   }
 
+  async update(id: number, updateMemoDTO: UpdateMemoDTO) {
+    const memo = await this.memoRepository.preload({ id, ...updateMemoDTO });
+
+    if (!memo) {
+      throw new NotFoundException('Memo not exists.');
+    }
+
+    return this.memoRepository.save(memo);
+  }
+
   async remove(id: number) {
     const memo = await this.memoRepository.findOneBy({ id: id });
 

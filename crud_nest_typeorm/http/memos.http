@@ -6,7 +6,7 @@ GET {{baseUrl}}/memos/
 
 ### Recuperando recado por id
 
-GET {{baseUrl}}/memos/2
+GET {{baseUrl}}/memos/4
 
 ### Criando recado 
 
@@ -20,14 +20,12 @@ Content-Type: application/json
   }
 
 ### Atualiza o recado
-PATCH {{baseUrl}}/memos/1
+PATCH {{baseUrl}}/memos/4
 Content-Type: application/json
 
   {
-    "text": "ATUALIZADO",
-    "from": "Antonio",
-    "to": "Isadora",
-    "wasRead": true
+    "text": "Atualizando texto",
+    "wasRead": false
   }
 
 ### Apaga recado por id

@@ -38,7 +38,7 @@ export class MemosController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateMemoDTO: UpdateMemoDTO,
   ) {
-    // return this.memosService.update(id, updateMemoDTO);
+    return this.memosService.update(id, updateMemoDTO);
   }
 
   @Delete(':id')
