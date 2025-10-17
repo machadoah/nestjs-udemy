@@ -1,18 +1,18 @@
 @baseUrl = http://localhost:3000
 
-###
+### Recuperando todos os recados
 
 GET {{baseUrl}}/recados/
 
-###
+### Recuperando recado por id
 
 GET {{baseUrl}}/recados/13
 
-### 
+### Criando recado 
 
 POST {{baseUrl}}/recados
 Content-Type: application/json
 
 {
-    "a": "a"
+    "name": "Esse é um recado"
 }
