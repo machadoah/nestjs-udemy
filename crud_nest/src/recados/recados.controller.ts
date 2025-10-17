@@ -8,6 +8,7 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 
 // nest generate controller recados --no-spec
@@ -16,9 +17,12 @@ import {
 export class RecadosController {
   @Get()
   @HttpCode(HttpStatus.I_AM_A_TEAPOT)
-  findAll() {
+  findAll(@Query() pagination: { limit: number; offset: number }) {
+    const { limit = 10, offset = 0 } = pagination;
+
     return {
-      detail: 'This route return all notes! 🫖',
+      detail: `This route return all notes! 🫖
+      In interval limit=${limit} and offset=${offset}`,
     };
   }
 

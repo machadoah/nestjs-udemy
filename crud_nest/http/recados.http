@@ -4,6 +4,12 @@
 
 GET {{baseUrl}}/recados/
 
+### Recuperando recados com query parameters
+
+GET {{baseUrl}}/recados/
+?limit=200
+&offset=30
+
 ### Recuperando recado por id
 
 GET {{baseUrl}}/recados/13
