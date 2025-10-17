@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { RecadoEntity } from './entities/recado.entity';
 
 // nest generate service recados --no-spec
@@ -22,7 +22,14 @@ export class RecadosService {
   }
 
   findOne(id: string) {
-    return this.memos.find((item) => item.id === Number(id));
+    const memo = this.memos.find((item) => item.id === Number(id));
+
+    if (memo) {
+      return memo;
+    }
+
+    // throw new HttpException('Memo not exists.', HttpStatus.NOT_FOUND);
+    throw new NotFoundException('Memo not existis.');
   }
 
   create(body: any) {
@@ -44,14 +51,16 @@ export class RecadosService {
       (memo) => memo.id === Number(id),
     );
 
-    if (existingMemoIndex >= 0) {
-      const existingMemo = this.memos[existingMemoIndex];
-
-      this.memos[existingMemoIndex] = {
-        ...existingMemo,
-        ...body,
-      };
+    if (existingMemoIndex < 0) {
+      throw new NotFoundException('Memo not existis.');
     }
+
+    const existingMemo = this.memos[existingMemoIndex];
+
+    this.memos[existingMemoIndex] = {
+      ...existingMemo,
+      ...body,
+    };
 
     return this.memos[existingMemoIndex];
   }
@@ -61,8 +70,14 @@ export class RecadosService {
       (memo) => memo.id === Number(id),
     );
 
-    if (existingMemoIndex >= 0) {
-      this.memos.splice(existingMemoIndex, 1);
+    if (existingMemoIndex < 0) {
+      throw new NotFoundException('Memo not existis.');
     }
+
+    const memo = this.memos[existingMemoIndex];
+
+    this.memos.splice(existingMemoIndex, 1);
+
+    return memo;
   }
 }
