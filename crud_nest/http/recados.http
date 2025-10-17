@@ -24,3 +24,7 @@ Content-Type: application/json
 {
     "name": "Esse é um recado"
 }
+
+### Apaga recado por id
+
+GET {{baseUrl}}/recados/13
