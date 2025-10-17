@@ -26,7 +26,8 @@ Content-Type: application/json
   {
     "text": "ATUALIZADO",
     "from": "Antonio",
-    "to": "Isadora"
+    "to": "Isadora",
+    "wasRead": true
   }
 
 ### Apaga recado por id
