@@ -1,13 +1,22 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Post,
+} from '@nestjs/common';
 
 // nest generate controller recados --no-spec
 
 @Controller('recados')
 export class RecadosController {
   @Get()
+  @HttpCode(HttpStatus.I_AM_A_TEAPOT)
   findAll() {
     return {
-      detail: 'This route return all notes',
+      detail: 'This route return all notes! 🫖',
     };
   }
 
