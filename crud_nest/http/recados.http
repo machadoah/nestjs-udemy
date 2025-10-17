@@ -7,3 +7,12 @@ GET {{baseUrl}}/recados/
 ###
 
 GET {{baseUrl}}/recados/13
+
+### 
+
+POST {{baseUrl}}/recados
+Content-Type: application/json
+
+{
+    "a": "a"
+}
