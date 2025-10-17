@@ -1,5 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { RecadoEntity } from './entities/recado.entity';
+import { CreateMemoDTO } from './dto/create-memo.dto';
+import { UpdateMemoDTO } from './dto/update-memo.dto';
 
 // nest generate service recados --no-spec
 
@@ -32,13 +34,16 @@ export class RecadosService {
     throw new NotFoundException('Memo not existis.');
   }
 
-  create(body: any) {
+  create(createMemoDTO: CreateMemoDTO) {
     this.lastId++;
 
     const id = this.lastId;
+    const initialMemo = { wasRead: false, date: new Date() };
+
     const newMemo = {
       id,
-      ...body,
+      ...createMemoDTO,
+      ...initialMemo,
     };
 
     this.memos.push(newMemo);
@@ -46,7 +51,7 @@ export class RecadosService {
     return newMemo;
   }
 
-  update(id: string, body: any) {
+  update(id: string, body: UpdateMemoDTO) {
     const existingMemoIndex = this.memos.findIndex(
       (memo) => memo.id === Number(id),
     );

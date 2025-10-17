@@ -8,6 +8,8 @@ import {
   Post,
 } from '@nestjs/common';
 import { RecadosService } from './recados.service';
+import { CreateMemoDTO } from './dto/create-memo.dto';
+import { UpdateMemoDTO } from './dto/update-memo.dto';
 
 // nest generate controller recados --no-spec
 
@@ -26,13 +28,13 @@ export class RecadosController {
   }
 
   @Post()
-  create(@Body() body: any) {
-    return this.recadosService.create(body);
+  create(@Body() createMemoDTO: CreateMemoDTO) {
+    return this.recadosService.create(createMemoDTO);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body: any) {
-    return this.recadosService.update(id, body);
+  update(@Param('id') id: string, @Body() updateMemoDTO: UpdateMemoDTO) {
+    return this.recadosService.update(id, updateMemoDTO);
   }
 
   @Delete(':id')
