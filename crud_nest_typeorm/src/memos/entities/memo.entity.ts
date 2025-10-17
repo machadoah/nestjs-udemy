@@ -33,9 +33,6 @@ export class MemoEntity {
   @Column({ default: false })
   wasRead: boolean;
 
-  @Column()
-  date: Date;
-
   @CreateDateColumn()
   createdAt?: Date;
 

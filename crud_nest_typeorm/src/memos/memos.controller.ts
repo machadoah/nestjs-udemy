@@ -16,21 +16,21 @@ import { UpdateMemoDTO } from './dto/update-memo.dto';
 
 @Controller('memos')
 export class MemosController {
-  constructor(private readonly recadosService: MemosService) {}
+  constructor(private readonly memosService: MemosService) {}
 
   @Get()
   findAll() {
-    return this.recadosService.findAll();
+    return this.memosService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.recadosService.findOne(id);
+    return this.memosService.findOne(id);
   }
 
   @Post()
   create(@Body() createMemoDTO: CreateMemoDTO) {
-    return this.recadosService.create(createMemoDTO);
+    // return this.memosService.create(createMemoDTO);
   }
 
   @Patch(':id')
@@ -38,11 +38,11 @@ export class MemosController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateMemoDTO: UpdateMemoDTO,
   ) {
-    return this.recadosService.update(id, updateMemoDTO);
+    // return this.memosService.update(id, updateMemoDTO);
   }
 
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
-    return this.recadosService.remove(id);
+    // return this.memosService.remove(id);
   }
 }
