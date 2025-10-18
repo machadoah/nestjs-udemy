@@ -4,6 +4,7 @@ import { CreateMemoDTO } from './dto/create-memo.dto';
 import { UpdateMemoDTO } from './dto/update-memo.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { PeopleService } from 'src/people/people.service';
 
 // nest generate service recados --no-spec
 
@@ -12,6 +13,7 @@ export class MemosService {
   constructor(
     @InjectRepository(Memo)
     private readonly memoRepository: Repository<Memo>,
+    private readonly peopleRepository: PeopleService,
   ) {}
 
   async findAll() {
@@ -33,6 +35,9 @@ export class MemosService {
   }
 
   create(createMemoDTO: CreateMemoDTO) {
+    // Encontrar quem criou o memorando
+    // Encontrar quem vai receber o memorando
+
     const newMemo = {
       ...createMemoDTO,
     };
