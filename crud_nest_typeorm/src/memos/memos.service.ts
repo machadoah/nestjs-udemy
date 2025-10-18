@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { MemoEntity } from './entities/memo.entity';
+import { Memo } from './entities/memo.entity';
 import { CreateMemoDTO } from './dto/create-memo.dto';
 import { UpdateMemoDTO } from './dto/update-memo.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -10,8 +10,8 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class MemosService {
   constructor(
-    @InjectRepository(MemoEntity)
-    private readonly memoRepository: Repository<MemoEntity>,
+    @InjectRepository(Memo)
+    private readonly memoRepository: Repository<Memo>,
   ) {}
 
   async findAll() {
