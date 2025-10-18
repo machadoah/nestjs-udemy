@@ -1,8 +1,10 @@
 import { IsEmail } from 'class-validator';
+import { Memo } from 'src/memos/entities/memo.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -21,6 +23,12 @@ export class Person {
 
   @Column({ length: 100 })
   name: string;
+
+  @OneToMany(() => Memo, (memo) => memo.from)
+  memosSent: Memo[];
+
+  @OneToMany(() => Memo, (memo) => memo.to)
+  memosReceived: Memo[];
 
   @CreateDateColumn()
   createdAt?: Date;

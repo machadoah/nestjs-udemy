@@ -1,7 +1,10 @@
+import { Person } from 'src/people/entities/person.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -11,23 +14,16 @@ export class Memo {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({
-    length: 255,
-  })
+  @Column({ length: 255 })
   text: string;
 
-  @Column({
-    length: 50,
-  })
-  @Column({
-    length: 50,
-  })
+  // many messages can be sent by one person
+  @ManyToOne(() => Person)
+  @JoinColumn({ name: 'from' })
   from: string;
 
-  @Column({
-    type: 'varchar',
-    length: 50,
-  })
+  @ManyToOne(() => Person)
+  @JoinColumn({ name: 'to' })
   to: string;
 
   @Column({ default: false })

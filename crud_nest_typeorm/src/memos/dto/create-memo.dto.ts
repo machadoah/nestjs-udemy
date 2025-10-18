@@ -7,15 +7,15 @@ export class CreateMemoDTO {
   @MaxLength(255)
   readonly text: string;
 
-  @IsString()
-  @IsNotEmpty()
-  @MinLength(2)
-  @MaxLength(55)
-  readonly from: string;
+  // @IsString()
+  // @IsNotEmpty()
+  // @MinLength(2)
+  // @MaxLength(55)
+  // readonly from: string;
 
-  @IsString()
-  @IsNotEmpty()
-  @MinLength(2)
-  @MaxLength(55)
-  readonly to: string;
+  // @IsString()
+  // @IsNotEmpty()
+  // @MinLength(2)
+  // @MaxLength(55)
+  // readonly to: string;
 }
