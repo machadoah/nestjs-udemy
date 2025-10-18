@@ -1,0 +1,33 @@
+@baseUrl = http://localhost:3000
+
+### Recuperando todos os recados
+
+GET {{baseUrl}}/people/
+
+### Recuperando recado por id
+
+GET {{baseUrl}}/people/4
+
+### Criando recado 
+
+POST {{baseUrl}}/people
+Content-Type: application/json
+
+  {
+    "email": "antonio@mail.com",
+    "name": "Antonio",
+    "password": "123456789"
+  }
+
+### Atualiza o recado
+PATCH {{baseUrl}}/people/4
+Content-Type: application/json
+
+  {
+    "text": "Atualizando texto",
+    "wasRead": false
+  }
+
+### Apaga recado por id
+
+DELETE  {{baseUrl}}/people/1
