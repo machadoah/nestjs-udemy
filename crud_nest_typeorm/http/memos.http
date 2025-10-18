@@ -15,8 +15,8 @@ Content-Type: application/json
 
   {
     "text": "Novo Recado",
-    "from": "Antonio",
-    "to": "Isadora"
+    "fromId": 2,
+    "toId": 5
   }
 
 ### Atualiza o recado
@@ -25,9 +25,9 @@ Content-Type: application/json
 
   {
     "text": "Atualizando texto",
-    "wasRead": false
+    "wasRead": true
   }
 
 ### Apaga recado por id
 
-DELETE  {{baseUrl}}/memos/1
+DELETE  {{baseUrl}}/memos/4

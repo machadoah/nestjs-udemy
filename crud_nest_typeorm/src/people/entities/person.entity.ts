@@ -24,15 +24,15 @@ export class Person {
   @Column({ length: 100 })
   name: string;
 
-  @OneToMany(() => Memo, (memo) => memo.from)
-  memosSent: Memo[];
-
-  @OneToMany(() => Memo, (memo) => memo.to)
-  memosReceived: Memo[];
-
   @CreateDateColumn()
   createdAt?: Date;
 
   @UpdateDateColumn()
   updatedAt?: Date;
+
+  @OneToMany(() => Memo, (memo) => memo.from)
+  memosSent: Memo[];
+
+  @OneToMany(() => Memo, (memo) => memo.to)
+  memosReceived: Memo[];
 }

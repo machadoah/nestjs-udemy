@@ -13,7 +13,7 @@ export class MemosService {
   constructor(
     @InjectRepository(Memo)
     private readonly memoRepository: Repository<Memo>,
-    private readonly peopleRepository: PeopleService,
+    private readonly peopleService: PeopleService,
   ) {}
 
   async findAll() {
@@ -34,12 +34,18 @@ export class MemosService {
     throw new NotFoundException('Memo not exists.');
   }
 
-  create(createMemoDTO: CreateMemoDTO) {
+  async create(createMemoDTO: CreateMemoDTO) {
+    const { fromId, toId } = createMemoDTO;
     // Encontrar quem criou o memorando
+    const from = await this.peopleService.findOne(fromId);
+
     // Encontrar quem vai receber o memorando
+    const to = await this.peopleService.findOne(toId);
 
     const newMemo = {
-      ...createMemoDTO,
+      text: createMemoDTO.text,
+      from: from,
+      to: to,
     };
 
     const memo = this.memoRepository.create(newMemo);

@@ -17,15 +17,6 @@ export class Memo {
   @Column({ length: 255 })
   text: string;
 
-  // many messages can be sent by one person
-  @ManyToOne(() => Person)
-  @JoinColumn({ name: 'from' })
-  from: string;
-
-  @ManyToOne(() => Person)
-  @JoinColumn({ name: 'to' })
-  to: string;
-
   @Column({ default: false })
   wasRead: boolean;
 
@@ -34,4 +25,13 @@ export class Memo {
 
   @UpdateDateColumn()
   updatedAt?: Date;
+
+  // many messages can be sent by one person
+  @ManyToOne(() => Person, { eager: true })
+  @JoinColumn({ name: 'from_id' })
+  from: Person;
+
+  @ManyToOne(() => Person, { eager: true })
+  @JoinColumn({ name: 'to_id' })
+  to: Person;
 }

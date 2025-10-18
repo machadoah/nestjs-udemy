@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsString, MaxLength, MinLength } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsPositive,
+  IsString,
+  MaxLength,
+  MinLength,
+} from 'class-validator';
 
 export class CreateMemoDTO {
   @IsString()
@@ -7,15 +13,9 @@ export class CreateMemoDTO {
   @MaxLength(255)
   readonly text: string;
 
-  // @IsString()
-  // @IsNotEmpty()
-  // @MinLength(2)
-  // @MaxLength(55)
-  // readonly from: string;
+  @IsPositive()
+  fromId: number;
 
-  // @IsString()
-  // @IsNotEmpty()
-  // @MinLength(2)
-  // @MaxLength(55)
-  // readonly to: string;
+  @IsPositive()
+  toId: number;
 }
