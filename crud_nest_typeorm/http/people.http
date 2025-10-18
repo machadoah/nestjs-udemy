@@ -24,8 +24,8 @@ PATCH {{baseUrl}}/people/4
 Content-Type: application/json
 
   {
-    "text": "Atualizando texto",
-    "wasRead": false
+    "name": "Antonio Henrique",
+    "password": "987654321"
   }
 
 ### Apaga recado por id
