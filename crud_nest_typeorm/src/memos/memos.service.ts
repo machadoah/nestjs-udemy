@@ -59,7 +59,8 @@ export class MemosService {
       throw new NotFoundException('Memo not exists.');
     }
 
-    return this.memoRepository.save(memo);
+    await this.memoRepository.save(memo);
+    return this.findOne(id);
   }
 
   async remove(id: number) {
