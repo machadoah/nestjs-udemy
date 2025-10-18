@@ -3,10 +3,12 @@
 ### Recuperando todos os recados
 
 GET {{baseUrl}}/memos/
+?limit=2
+&offset=1
 
 ### Recuperando recado por id
 
-GET {{baseUrl}}/memos/4
+GET {{baseUrl}}/memos/7
 
 ### Criando recado 
 
@@ -16,15 +18,15 @@ Content-Type: application/json
   {
     "text": "Novo Recado",
     "fromId": 2,
-    "toId": 5
+    "toId": 4
   }
 
 ### Atualiza o recado
-PATCH {{baseUrl}}/memos/4
+PATCH {{baseUrl}}/memos/7
 Content-Type: application/json
 
   {
-    "text": "Atualizando texto",
+    "text": "Atualizando textooo",
     "wasRead": true
   }
 

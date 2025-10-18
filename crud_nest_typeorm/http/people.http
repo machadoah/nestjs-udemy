@@ -30,4 +30,4 @@ Content-Type: application/json
 
 ### Apaga recado por id
 
-DELETE  {{baseUrl}}/people/1
+DELETE  {{baseUrl}}/people/5

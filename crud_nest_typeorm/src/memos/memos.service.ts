@@ -5,6 +5,7 @@ import { UpdateMemoDTO } from './dto/update-memo.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PeopleService } from 'src/people/people.service';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 // nest generate service recados --no-spec
 
@@ -16,8 +17,10 @@ export class MemosService {
     private readonly peopleService: PeopleService,
   ) {}
 
-  async findAll() {
-    return await this.memoRepository.find();
+  async findAll(paginationDto: PaginationDto) {
+    const { limit = 10, offset = 0 } = paginationDto;
+
+    return await this.memoRepository.find({ take: limit, skip: offset });
   }
 
   async findOne(id: number) {

@@ -7,10 +7,12 @@ import {
   ParseIntPipe,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
 import { MemosService } from './memos.service';
 import { CreateMemoDTO } from './dto/create-memo.dto';
 import { UpdateMemoDTO } from './dto/update-memo.dto';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 
 // nest generate controller recados --no-spec
 
@@ -19,8 +21,8 @@ export class MemosController {
   constructor(private readonly memosService: MemosService) {}
 
   @Get()
-  findAll() {
-    return this.memosService.findAll();
+  findAll(@Query() paginationDto: PaginationDto) {
+    return this.memosService.findAll(paginationDto);
   }
 
   @Get(':id')
