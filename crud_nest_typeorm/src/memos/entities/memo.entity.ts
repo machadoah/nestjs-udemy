@@ -27,11 +27,19 @@ export class Memo {
   updatedAt?: Date;
 
   // many messages can be sent by one person
-  @ManyToOne(() => Person, { eager: true })
+  @ManyToOne(() => Person, {
+    eager: true,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'from_id' })
   from: Person;
 
-  @ManyToOne(() => Person, { eager: true })
+  @ManyToOne(() => Person, {
+    eager: true,
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn({ name: 'to_id' })
   to: Person;
 }
